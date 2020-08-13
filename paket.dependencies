@@ -1,0 +1,16 @@
+source https://api.nuget.org/v3/index.json
+source https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json
+framework: netcoreapp3.1
+storage: none
+
+nuget FSharp.Core                           >= 4.6.2 lowest_matching: true
+nuget FSharp.Data.Adaptive                  ~> 1.0.0
+nuget Adaptify.Scripting.Compiler.Core      ~> 1.0.0-scripting0001
+nuget microsoft.dotnet.interactive          ~> 1.0.0-beta.20372.2
+nuget microsoft.dotnet.interactive.fsharp   ~> 1.0.0-beta.20372.2
+
+group Build
+source https://api.nuget.org/v3/index.json
+framework: netstandard2.0
+github aardvark-platform/aardvark.fake:v5
+nuget Fake.DotNet.Cli
