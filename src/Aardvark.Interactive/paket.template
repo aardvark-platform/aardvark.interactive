@@ -1,0 +1,6 @@
+type project
+id Aardvark.Interactive
+authors Aardvark Platform Team
+owners Aardvark Platform Team
+license MIT
+description Interactive Extension
