@@ -1,0 +1,50 @@
+#!fsharp
+
+#r "nuget:FSharp.Data.Adaptive,1.0.0"
+#r "nuget:Adaptify.Scripting.Core,1.0.0-scripting0003"
+#r "nuget:Aardvark.Interactive,1.0.0"
+
+#!fsharp
+
+open FSharp.Data.Adaptive
+open Adaptify
+
+let show (a : 'a) = display(sprintf "%A" a) |> ignore
+
+[<ModelType>]
+type Blubber =
+    {
+        a : int
+    }
+
+let update (m : Blubber) (msg : unit) =
+    m
+
+let view (m : AdaptiveBlubber) =
+    m.Current |> AVal.map (fun x -> x) |> AVal.force |> show
+    m.a |> AVal.map (fun a -> a * 2) |> AVal.force |> show
+
+
+
+let sepp = AdaptiveBlubber.Create { a = 124313 }
+view sepp
+
+#!markdown
+
+### This works great
+
+#!fsharp
+
+let hugo : int = 10
+let b = 123123
+
+#!csharp
+
+public class Sepp 
+{
+    public int Hans;
+}
+
+var a = new Sepp();
+a.Hans = 123123;
+Console.WriteLine($"{a.Hans}");
